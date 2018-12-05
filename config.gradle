@@ -15,10 +15,10 @@ ext {
     ]
 
     dependencies = [
+            support: "com.android.support:appcompat-v7:${dependVersion.support}",
             glide               : "com.github.bumptech.glide:glide:${dependVersion.glide}",
             glideCompiler       : "com.github.bumptech.glide:compiler:${dependVersion.glide}",
-            glideTransformations: "jp.wasabeef:glide-transformations:${dependVersion.glideTransformations}",
-            support: "com.android.support:appcompat-v7:${dependVersion.support}"
+            glideTransformations: "jp.wasabeef:glide-transformations:${dependVersion.glideTransformtions}",
     ]
 
 }
