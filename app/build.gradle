@@ -35,6 +35,8 @@ dependencies {
     implementation(libs.glideTransformations) {
         exclude group: 'com.github.bumptech.glide', module: 'glide'
     }
+
     annotationProcessor libs.glideCompiler
     implementation project(':data')
+    implementation libs.weex
 }
