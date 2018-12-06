@@ -18,8 +18,9 @@ package com.massky.data.util;
 import android.support.annotation.Nullable;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
+import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
-import java.util.logging.Logger;
+
 
 /**
  * @author: sunjian

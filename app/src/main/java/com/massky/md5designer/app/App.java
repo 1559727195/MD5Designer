@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.bumptech.glide.request.target.ViewTarget;
+import com.massky.data.util.LoggerUtil;
+import com.massky.md5designer.BuildConfig;
 import com.massky.md5designer.R;
 
 public class App extends Application {
@@ -13,6 +15,9 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         ViewTarget.setTagId(R.id.glide_tag);
+        LoggerUtil.init(BuildConfig.DEBUG);
+
+
 
     }
 }
