@@ -8,17 +8,22 @@ ext {
     ]
 
     dependVersion = [
-            support               : "28.0.0",
+            support            : "28.0.0",
             glide              : "4.8.0",
-            glideTransformtions: "3.3.0"
+            glideTransformtions: "3.3.0",
+            logger             : "2.2.0"
 
     ]
 
     dependencies = [
-            support: "com.android.support:appcompat-v7:${dependVersion.support}",
+            support             : "com.android.support:appcompat-v7:${dependVersion.support}",
             glide               : "com.github.bumptech.glide:glide:${dependVersion.glide}",
             glideCompiler       : "com.github.bumptech.glide:compiler:${dependVersion.glide}",
             glideTransformations: "jp.wasabeef:glide-transformations:${dependVersion.glideTransformtions}",
     ]
 
+    dataDependencies = [
+            support: "com.android.support:appcompat-v7:${dependVersion.support}",
+            logger : "com.orhanobut:logger:${dependVersion.logger}"
+    ]
 }

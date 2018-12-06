@@ -13,6 +13,6 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         ViewTarget.setTagId(R.id.glide_tag);
-      
+
     }
 }
