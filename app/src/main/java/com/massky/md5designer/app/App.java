@@ -30,7 +30,7 @@ public class App extends Application {
 
         WXSDKEngine.initialize(this, config);
         try {
-            WXSDKEngine.registerComponent("tabPager", WXTabPagerComponent.class);
+            WXSDKEngine.registerComponent("tabPager", null);
         } catch (WXException e) {
             LoggerUtil.d(e.getMessage());
         }
