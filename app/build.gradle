@@ -43,4 +43,7 @@ dependencies {
     annotationProcessor libs.glideCompiler
     implementation project(':data')
     implementation libs.weex
+
+    //权限
+    implementation libs.sonic
 }

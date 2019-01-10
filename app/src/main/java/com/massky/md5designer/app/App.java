@@ -5,6 +5,8 @@ import com.bumptech.glide.request.target.ViewTarget;
 import com.massky.data.util.LoggerUtil;
 import com.massky.md5designer.BuildConfig;
 import com.massky.md5designer.R;
+import com.massky.md5designer.di.component.AppComponent;
+import com.massky.md5designer.weex.WXHttpAdapter;
 import com.massky.md5designer.weex.WXImageAdapter;
 import com.taobao.weex.InitConfig;
 import com.taobao.weex.WXSDKEngine;
@@ -12,6 +14,8 @@ import com.taobao.weex.common.WXException;
 
 public class App extends Application {
 
+    private static App sInstance;
+    public AppComponent mAppComponent;
 
     @Override
     public void onCreate() {
@@ -19,14 +23,12 @@ public class App extends Application {
         ViewTarget.setTagId(R.id.glide_tag);
         LoggerUtil.init(BuildConfig.DEBUG);
         initWeex();
-
-
     }
 
     private void initWeex() {
         InitConfig config = new InitConfig.Builder()
                 .setImgAdapter(new WXImageAdapter())
-                .setHttpAdapter(null)
+                .setHttpAdapter(new WXHttpAdapter(mAppComponent.provideOkhttpClient()))
                 .build();
 
         WXSDKEngine.initialize(this, config);
@@ -34,6 +36,7 @@ public class App extends Application {
             WXSDKEngine.registerComponent("tabPager", null);
         } catch (WXException e) {
             LoggerUtil.d(e.getMessage());
+
         }
     }
 }
