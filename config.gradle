@@ -18,7 +18,10 @@ ext {
             gpuimage              : "1.4.1",
             dagger2               : "2.19",
             sonic                 : "3.0.0",
-            okhttp                : "3.9.0"
+            okhttp                : "3.9.0",
+            butterknife           : "9.0.0-rc1",
+            javaxInjectVersion    : "1",
+            arrowVersion          : "1.0.0",
 
     ]
 
@@ -31,6 +34,8 @@ ext {
             dagger                  : "com.google.dagger:dagger:${dependVersion.dagger2}",
             daggerCompiler          : "com.google.dagger:dagger-compiler:${dependVersion.dagger2}",
             sonic               : "com.tencent.sonic:sdk:${dependVersion.sonic}",
+            butterknife         : "com.jakewharton:butterknife:${dependVersion.butterknife}",
+            butterknifeCompiler : "com.jakewharton:butterknife-compiler:${dependVersion.butterknife}",
     ]
 
     dataDependencies = [
@@ -47,6 +52,8 @@ ext {
     domainDependencies = [
             rxjava         : "io.reactivex.rxjava2:rxjava:${dependVersion.rxjava}",
             rxandroid      : "io.reactivex.rxjava2:rxandroid:${dependVersion.rxandroid}",
-            gpuimage            : "jp.co.cyberagent.android.gpuimage:gpuimage-library:${dependVersion.gpuimage}"
+            gpuimage            : "jp.co.cyberagent.android.gpuimage:gpuimage-library:${dependVersion.gpuimage}",
+            javaxInject    : "javax.inject:javax.inject:${dependVersion.javaxInjectVersion}",
+            arrow          : "com.fernandocejas:arrow:${dependVersion.arrowVersion}",
     ]
 }

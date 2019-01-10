@@ -1,5 +1,6 @@
 package com.massky.md5designer.app;
 
+import android.app.Activity;
 import android.app.Application;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.massky.data.util.LoggerUtil;
@@ -12,10 +13,14 @@ import com.taobao.weex.InitConfig;
 import com.taobao.weex.WXSDKEngine;
 import com.taobao.weex.common.WXException;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class App extends Application {
 
     private static App sInstance;
     public AppComponent mAppComponent;
+    private Set<Activity> mActivities;
 
     @Override
     public void onCreate() {
@@ -37,6 +42,23 @@ public class App extends Application {
         } catch (WXException e) {
             LoggerUtil.d(e.getMessage());
 
+        }
+    }
+
+    public static synchronized App getInstance() {
+        return sInstance;
+    }
+
+    public void addActivity(Activity activity) {
+        if (mActivities == null) {
+            mActivities = new HashSet<>();
+        }
+        mActivities.add(activity);
+    }
+
+    public void removeActivity(Activity activity) {
+        if (mActivities != null) {
+            mActivities.remove(activity);
         }
     }
 }

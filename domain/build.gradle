@@ -37,4 +37,8 @@ dependencies {
 //    def libs = rootProject.ext.dependencies
     //约束布局
     api domainDependencies.gpuimage
+    api domainDependencies.javaxInject
+    api domainDependencies.rxjava
+    api domainDependencies.rxandroid
+    implementation domainDependencies.arrow
 }

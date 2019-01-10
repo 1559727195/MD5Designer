@@ -46,4 +46,8 @@ dependencies {
 
     //权限
     implementation libs.sonic
+
+    implementation libs.butterknife
+    annotationProcessor libs.butterknifeCompiler
+
 }
