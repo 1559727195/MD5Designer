@@ -30,20 +30,6 @@ public class WXImageAdapter implements IWXImgLoaderAdapter {
 
             return;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     private String getResIdStr(String url) {

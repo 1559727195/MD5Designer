@@ -5,6 +5,7 @@ import com.bumptech.glide.request.target.ViewTarget;
 import com.massky.data.util.LoggerUtil;
 import com.massky.md5designer.BuildConfig;
 import com.massky.md5designer.R;
+import com.massky.md5designer.weex.WXImageAdapter;
 import com.taobao.weex.InitConfig;
 import com.taobao.weex.WXSDKEngine;
 import com.taobao.weex.common.WXException;
@@ -24,7 +25,7 @@ public class App extends Application {
 
     private void initWeex() {
         InitConfig config = new InitConfig.Builder()
-                .setImgAdapter(null)
+                .setImgAdapter(new WXImageAdapter())
                 .setHttpAdapter(null)
                 .build();
 

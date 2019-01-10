@@ -20,6 +20,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
+import com.massky.md5designer.app.GlideApp;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,12 +28,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.nio.channels.FileChannel;
-
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import jp.co.cyberagent.android.gpuimage.GPUImage;
+import jp.co.cyberagent.android.gpuimage.GPUImageVignetteFilter;
 import jp.wasabeef.glide.transformations.gpu.VignetteFilterTransformation;
 
 public class ImageLoader {
@@ -53,7 +55,7 @@ public class ImageLoader {
                 .load(url)
                 .into(imageView);
     }
-
+//
     public static void load(Context context, String url, @DrawableRes int placeholderId, ImageView imageView) {
         GlideApp.with(context)
                 .load(url)
@@ -61,6 +63,7 @@ public class ImageLoader {
                 .placeholder(placeholderId)
                 .into(imageView);
     }
+
 
     public static void download(Context context, String url, final OnDownloadCallback callback) {
         GlideApp.with(context).downloadOnly().load(url).into(new SimpleTarget<File>() {
@@ -73,6 +76,8 @@ public class ImageLoader {
         });
     }
 
+
+//
     public static void downloadFile(final Context context, String url, final File saveFile, final OnFileCallback callback) {
         Glide.with(context).asFile().load(url)
                 .listener(new FileRequestListener())
@@ -116,6 +121,8 @@ public class ImageLoader {
                 });
     }
 
+
+//
     @SuppressWarnings("all")
     public static void loadWithVignette(Context context, String url, @DrawableRes int placeholderId, ImageView imageView) {
         Single.just(placeholderId)
@@ -173,16 +180,16 @@ public class ImageLoader {
                     }
                 });
     }
-
+//
     public interface OnDownloadCallback {
         void download(File file);
     }
-
+//
     public interface OnFileCallback {
         void onFile(boolean isSuccess);
     }
-
-
+//
+//
     private static class FileRequestListener implements RequestListener<File> {
 
         @Override
