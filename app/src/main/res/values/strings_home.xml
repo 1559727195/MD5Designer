@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="text_conatct">联系人</string>
+    <string name="text_live">直播</string>
+    <string name="text_note">笔记</string>
+    <string name="text_music">音乐</string>
+    <string name="text_more">更多</string>
+    <string name="text_me">我的</string>
+    <string name="text_home">首页</string>
+    <string name="bottom_line">我是有底线的</string>
+</resources>

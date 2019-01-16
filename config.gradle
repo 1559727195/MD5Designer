@@ -22,6 +22,8 @@ ext {
             butterknife           : "9.0.0-rc1",
             javaxInjectVersion    : "1",
             arrowVersion          : "1.0.0",
+            androidx              : "1.0.0",
+            lottie                : "2.5.4"
 
     ]
 
@@ -36,6 +38,8 @@ ext {
             sonic               : "com.tencent.sonic:sdk:${dependVersion.sonic}",
             butterknife         : "com.jakewharton:butterknife:${dependVersion.butterknife}",
             butterknifeCompiler : "com.jakewharton:butterknife-compiler:${dependVersion.butterknife}",
+            material            : "com.google.android.material:material:${dependVersion.androidx}",
+            lottie              : "com.airbnb.android:lottie:${dependVersion.lottie}",
     ]
 
     dataDependencies = [
@@ -46,6 +50,7 @@ ext {
 
             okhttp                  : "com.squareup.okhttp3:okhttp:${dependVersion.okhttp}",
             okhttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${dependVersion.okhttp}",
+            material            : "com.google.android.material:material:${dependVersion.androidx}",
     ]
 
 

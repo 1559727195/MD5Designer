@@ -1,9 +1,10 @@
 package com.massky.md5designer.base;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.massky.data.util.SnackbarUtil;
 import com.massky.md5designer.app.App;
 
 import javax.inject.Inject;
@@ -54,6 +55,21 @@ public abstract class BaseActivity <T extends IPresenter> extends AppCompatActiv
     }
 
     protected void initView() {
+
+    }
+
+    @Override
+    public void showError(String msg) {
+        SnackbarUtil.show(this, msg);
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
 
     }
 

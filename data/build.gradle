@@ -38,14 +38,15 @@ dependencies {
     def dataDependencies = rootProject.ext.dataDependencies //依赖库配置
     api dataDependencies.logger
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    api dataDependencies.support
+    api 'androidx.appcompat:appcompat:1.1.0-alpha01'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     api project(':domain')
     api  dataDependencies.dagger
     annotationProcessor dataDependencies.daggerCompiler
     api dataDependencies.okhttp
     api dataDependencies.okhttpLoggingInterceptor
+    api dataDependencies.material
 
 }

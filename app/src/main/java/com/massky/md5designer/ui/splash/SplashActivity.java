@@ -14,10 +14,9 @@
   limitations under the License.
  */
 package com.massky.md5designer.ui.splash;
-
-import android.animation.Animator;
-import com.massky.md5designer.MainActivity;
-import com.massky.md5designer.R;
+import com.massky.md5designer.base.BaseActivity;
+import com.massky.md5designer.presenter.SplashPresenter;
+import com.massky.md5designer.presenter.contract.SplashContract;
 
 import butterknife.BindView;
 
@@ -29,48 +28,49 @@ import butterknife.BindView;
  */
 public class SplashActivity extends BaseActivity<SplashPresenter> implements SplashContract.View {
 
-    @BindView(R.id.splash_lottie)
-    LottieAnimationView mSplashAnim;
+//    @BindView(R.id.splash_lottie)
+//    LottieAnimationView mSplashAnim;
 
     @Override
     protected void initListener() {
-        mSplashAnim.addAnimatorListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                mSplashAnim.removeAllAnimatorListeners();
-                mPresenter.enterHome();
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
+//        mSplashAnim.addAnimatorListener(new Animator.AnimatorListener() {
+//            @Override
+//            public void onAnimationStart(Animator animation) {
+//            }
+//
+//            @Override
+//            public void onAnimationEnd(Animator animation) {
+//                mSplashAnim.removeAllAnimatorListeners();
+//                mPresenter.enterHome();
+//            }
+//
+//            @Override
+//            public void onAnimationCancel(Animator animation) {
+//
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animator animation) {
+//
+//            }
+//        });
     }
 
     @Override
     protected int getContentResId() {
-        return R.layout.activity_splash;
+//        return R.layout.activity_splash;
+        return 0;
     }
 
     @Override
     protected void initInject() {
-        getActivityComponent()
-                .inject(this);
+//        getActivityComponent()
+//                .inject(this);
     }
 
     @Override
     public void enterHome() {
-        MainActivity.start(this);
-        finish();
+//        MainActivity.start(this);
+//        finish();
     }
 }
