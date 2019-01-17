@@ -2,11 +2,14 @@ package com.massky.md5designer.app;
 
 import android.app.Activity;
 import android.app.Application;
+
 import com.bumptech.glide.request.target.ViewTarget;
 import com.massky.data.util.LoggerUtil;
 import com.massky.md5designer.BuildConfig;
 import com.massky.md5designer.R;
 import com.massky.md5designer.di.component.AppComponent;
+import com.massky.md5designer.di.component.DaggerAppComponent;
+import com.massky.md5designer.di.module.AppModule;
 import com.massky.md5designer.weex.WXHttpAdapter;
 import com.massky.md5designer.weex.WXImageAdapter;
 import com.taobao.weex.InitConfig;
@@ -47,6 +50,15 @@ public class App extends Application {
 
     public static synchronized App getInstance() {
         return sInstance;
+    }
+
+    public AppComponent getAppComponent() {
+        if (mAppComponent == null) {
+            mAppComponent = DaggerAppComponent.builder()
+                    .appModule(new AppModule(sInstance))
+                    .build();
+        }
+        return mAppComponent;
     }
 
     public void addActivity(Activity activity) {

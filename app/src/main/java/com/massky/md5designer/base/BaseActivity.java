@@ -1,19 +1,22 @@
 package com.massky.md5designer.base;
 
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.massky.data.util.SnackbarUtil;
 import com.massky.md5designer.app.App;
 import com.massky.md5designer.di.component.ActivityComponent;
+import com.massky.md5designer.di.component.DaggerActivityComponent;
+import com.massky.md5designer.di.module.ActivityModule;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public abstract class BaseActivity <T extends IPresenter> extends AppCompatActivity implements IView{
+public abstract class BaseActivity<T extends IPresenter> extends AppCompatActivity implements IView {
 
 
     private Unbinder mUnBinder;
@@ -80,14 +83,16 @@ public abstract class BaseActivity <T extends IPresenter> extends AppCompatActiv
     protected void initInject() {
 
     }
-//
-//    protected ActivityComponent getActivityComponent() {
-//        return DaggerActivityComponent.builder()
-//                .appComponent(App.getInstance().getAppComponent())
-//                .activityModule(getActivityModule())
-//                .build();
-//
-//
-//    }
+
+    protected ActivityComponent getActivityComponent() {
+        return DaggerActivityComponent.builder()
+                .appComponent(App.getInstance().getAppComponent())
+                .activityModule(getActivityModule())
+                .build();
+    }
+
+    protected ActivityModule getActivityModule() {
+        return new ActivityModule(this);
+    }
 
 }

@@ -15,14 +15,12 @@
  */
 package com.massky.md5designer.ui.splash;
 import android.animation.Animator;
-
 import com.airbnb.lottie.LottieAnimationView;
 import com.massky.md5designer.MainActivity;
 import com.massky.md5designer.R;
 import com.massky.md5designer.base.BaseActivity;
 import com.massky.md5designer.presenter.SplashPresenter;
 import com.massky.md5designer.presenter.contract.SplashContract;
-
 import butterknife.BindView;
 
 
@@ -68,8 +66,8 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
 
     @Override
     protected void initInject() {
-//        getActivityComponent()
-//                .inject(this);
+        getActivityComponent()
+                .inject(this);
     }
 
     @Override
