@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.massky.data.util.SnackbarUtil;
 import com.massky.md5designer.app.App;
+import com.massky.md5designer.di.component.ActivityComponent;
 
 import javax.inject.Inject;
 
@@ -79,5 +80,14 @@ public abstract class BaseActivity <T extends IPresenter> extends AppCompatActiv
     protected void initInject() {
 
     }
+//
+//    protected ActivityComponent getActivityComponent() {
+//        return DaggerActivityComponent.builder()
+//                .appComponent(App.getInstance().getAppComponent())
+//                .activityModule(getActivityModule())
+//                .build();
+//
+//
+//    }
 
 }

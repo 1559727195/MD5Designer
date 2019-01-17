@@ -50,4 +50,5 @@ dependencies {
     annotationProcessor libs.butterknifeCompiler
     implementation libs.material
     implementation libs.lottie
+    annotationProcessor libs.daggerCompiler
 }

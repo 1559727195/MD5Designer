@@ -18,7 +18,6 @@ package com.massky.data.util;
 import android.app.Activity;
 import androidx.annotation.StringRes;
 import android.view.View;
-
 import com.google.android.material.snackbar.Snackbar;
 
 
