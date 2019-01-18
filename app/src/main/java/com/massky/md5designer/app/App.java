@@ -28,9 +28,10 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        sInstance = this;
         ViewTarget.setTagId(R.id.glide_tag);
         LoggerUtil.init(BuildConfig.DEBUG);
-        initWeex();
+//        initWeex();
     }
 
     private void initWeex() {

@@ -7,9 +7,7 @@ import com.massky.md5designer.base.BasePresenter;
 import com.massky.md5designer.base.BaseSubscriber;
 import com.massky.md5designer.di.scope.ActivityScope;
 import com.massky.md5designer.presenter.contract.SplashContract;
-
 import java.util.concurrent.TimeUnit;
-
 import javax.inject.Inject;
 
 @ActivityScope

@@ -35,6 +35,8 @@
     </style>
 
     <style name="SplashTheme" parent="AppTheme.NoActionBar">
+        <!--<item name="android:windowBackground">@color/color_white</item>-->
+        <!--<item name="android:windowFullscreen">true</item>-->
         <item name="android:windowBackground">@color/color_white</item>
         <item name="android:windowFullscreen">true</item>
     </style>

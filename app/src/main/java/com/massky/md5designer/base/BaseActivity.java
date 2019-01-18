@@ -1,18 +1,14 @@
 package com.massky.md5designer.base;
 
 import android.os.Bundle;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.massky.data.util.SnackbarUtil;
 import com.massky.md5designer.app.App;
 import com.massky.md5designer.di.component.ActivityComponent;
 import com.massky.md5designer.di.component.DaggerActivityComponent;
 import com.massky.md5designer.di.module.ActivityModule;
-
 import javax.inject.Inject;
-
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
