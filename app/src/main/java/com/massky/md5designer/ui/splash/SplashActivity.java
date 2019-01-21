@@ -72,7 +72,7 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
 
     @Override
     public void enterHome() {
-//        MainActivity.start(this);
-//        finish();
+        MainActivity.start(this);
+        finish();
     }
 }

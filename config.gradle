@@ -40,6 +40,7 @@ ext {
             butterknifeCompiler : "com.jakewharton:butterknife-compiler:${dependVersion.butterknife}",
             material            : "com.google.android.material:material:${dependVersion.androidx}",
             lottie              : "com.airbnb.android:lottie:${dependVersion.lottie}",
+            appcompat           : "androidx.appcompat:appcompat:${dependVersion.androidx}",
     ]
 
     dataDependencies = [
