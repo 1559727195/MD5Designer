@@ -32,6 +32,7 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     def domainDependencies = rootProject.ext.domainDependencies
+    compileOnly domainDependencies.MTRVA
     api domainDependencies.rxjava
     api domainDependencies.rxandroid
 //    def libs = rootProject.ext.dependencies

@@ -23,7 +23,9 @@ ext {
             javaxInjectVersion    : "1",
             arrowVersion          : "1.0.0",
             androidx              : "1.0.0",
-            lottie                : "2.5.4"
+            lottie                : "2.5.4",
+            permission            : "4.0.0",
+            MTRVA                 : "2.3.2-x",
 
     ]
 
@@ -41,6 +43,9 @@ ext {
             material            : "com.google.android.material:material:${dependVersion.androidx}",
             lottie              : "com.airbnb.android:lottie:${dependVersion.lottie}",
             appcompat           : "androidx.appcompat:appcompat:${dependVersion.androidx}",
+            permission          : "com.github.hotchemi:permissionsdispatcher:${dependVersion.permission}",
+            permissionCompiler  : "com.github.hotchemi:permissionsdispatcher-processor:${dependVersion.permission}",
+            MTRVA               : "com.crazysunj:multitypeadapter:${dependVersion.MTRVA}",
     ]
 
     dataDependencies = [
@@ -48,10 +53,10 @@ ext {
             logger : "com.orhanobut:logger:${dependVersion.logger}",
             dagger                  : "com.google.dagger:dagger:${dependVersion.dagger2}",
             daggerCompiler          : "com.google.dagger:dagger-compiler:${dependVersion.dagger2}",
-
             okhttp                  : "com.squareup.okhttp3:okhttp:${dependVersion.okhttp}",
             okhttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${dependVersion.okhttp}",
             material            : "com.google.android.material:material:${dependVersion.androidx}",
+            MTRVA               : "com.crazysunj:multitypeadapter:${dependVersion.MTRVA}",
     ]
 
 
@@ -61,5 +66,6 @@ ext {
             gpuimage            : "jp.co.cyberagent.android.gpuimage:gpuimage-library:${dependVersion.gpuimage}",
             javaxInject    : "javax.inject:javax.inject:${dependVersion.javaxInjectVersion}",
             arrow          : "com.fernandocejas:arrow:${dependVersion.arrowVersion}",
+            MTRVA               : "com.crazysunj:multitypeadapter:${dependVersion.MTRVA}",
     ]
 }
