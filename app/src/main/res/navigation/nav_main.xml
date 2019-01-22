@@ -6,7 +6,7 @@
     app:startDestination="@id/navigation_item_home">
     <fragment
         android:id="@+id/navigation_item_home"
-        android:name="com.crazysunj.crazydaily.ui.home.HomeFragment"
+        android:name="com.massky.md5designer.ui.home.HomeFragment"
         android:label="@string/text_home"
         tools:layout="@layout/fragment_home" />
 
