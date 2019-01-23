@@ -1,10 +1,7 @@
 package com.massky.md5designer.di.module;
 
 import com.massky.domain.entity.common.CommonHeaderEntity;
-
 import javax.inject.Named;
-
-import androidx.navigation.Navigator;
 import dagger.Module;
 import dagger.Provides;
 
@@ -19,7 +16,7 @@ public class EntityModule {
     @Named(NAME_ZHIHU)
     @Provides
     CommonHeaderEntity provideZhihuHeader() {
-        return  new CommonHeaderEntity("",0,"","");
+        return  new CommonHeaderEntity("123",0,"","");
     }
 
 }

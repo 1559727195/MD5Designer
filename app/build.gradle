@@ -53,6 +53,7 @@ dependencies {
     implementation libs.permission
     //权限
     annotationProcessor libs.permissionCompiler
+    implementation libs.MTRVA
     implementation "android.arch.navigation:navigation-fragment:1.0.0-alpha07"
     implementation "android.arch.navigation:navigation-ui:1.0.0-alpha07"
 }
