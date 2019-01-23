@@ -9,6 +9,6 @@ public class MeFragment extends BaseFragment {
 
     @Override
     protected int getContentResId() {
-        return R.layout.activity_note;
+        return R.layout.activity_me;
     }
 }

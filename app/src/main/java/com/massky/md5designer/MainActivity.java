@@ -2,6 +2,10 @@ package com.massky.md5designer;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
+import butterknife.BindView;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,10 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.massky.md5designer.base.BaseActivity;
 import com.massky.md5designer.presenter.MainPresenter;
 
 public class MainActivity extends BaseActivity<MainPresenter> {
+    @BindView(R.id.main_navigition)
+    BottomNavigationView mNavigation;
 
     @Override
     protected int getContentResId() {
@@ -57,6 +65,9 @@ public class MainActivity extends BaseActivity<MainPresenter> {
 
     @Override
     protected void initView() {
-
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.main_host_fragment);
+        if (navHostFragment != null) {
+            NavigationUI.setupWithNavController(mNavigation,navHostFragment.getNavController());
+        }
     }
 }
