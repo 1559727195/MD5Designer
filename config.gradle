@@ -26,6 +26,7 @@ ext {
             lottie                : "2.5.4",
             permission            : "4.0.0",
             MTRVA                 : "2.3.2-x",
+            cardslideview         : "1.4.2",
 
     ]
 
@@ -46,6 +47,7 @@ ext {
             permission          : "com.github.hotchemi:permissionsdispatcher:${dependVersion.permission}",
             permissionCompiler  : "com.github.hotchemi:permissionsdispatcher-processor:${dependVersion.permission}",
             MTRVA               : "com.crazysunj:multitypeadapter:${dependVersion.MTRVA}",
+            cardslideview       : "com.crazysunj:cardslideview:${dependVersion.cardslideview}",
     ]
 
     dataDependencies = [

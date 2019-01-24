@@ -41,4 +41,8 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorPrimary">@color/color_white</item>
+    </style>
+
 </resources>
