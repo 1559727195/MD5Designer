@@ -4,6 +4,7 @@ package com.massky.md5designer.di.module;
 import android.content.Context;
 
 import com.massky.data.api.HttpHelper;
+import com.massky.domain.repository.ZhihuRepository;
 import com.massky.md5designer.app.App;
 
 import javax.inject.Singleton;
@@ -29,5 +30,11 @@ public class AppModule {
     @Singleton
     OkHttpClient provideOkhttpClient(HttpHelper httpHelper) {
         return httpHelper.getOkHttpClient();
+    }
+
+    @Provides
+    @Singleton
+    ZhihuRepository provideZhihuRepository(zhihu) {
+
     }
 }

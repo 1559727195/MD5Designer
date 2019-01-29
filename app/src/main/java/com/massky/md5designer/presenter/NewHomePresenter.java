@@ -5,7 +5,6 @@ import com.massky.domain.interactor.zhihu.ZhihuNewsListUseCase;
 import com.massky.md5designer.base.BasePresenter;
 import com.massky.md5designer.base.BaseSubscriber;
 import com.massky.md5designer.presenter.contract.NewHomeContract;
-
 import javax.inject.Inject;
 
 public class NewHomePresenter extends BasePresenter<NewHomeContract.View> implements NewHomeContract.Presenter {

@@ -3,6 +3,7 @@ package com.massky.md5designer.di.component;
 
 import android.content.Context;
 
+import com.massky.domain.repository.ZhihuRepository;
 import com.massky.md5designer.di.module.AppModule;
 import javax.inject.Singleton;
 import dagger.Component;
@@ -13,4 +14,5 @@ import okhttp3.OkHttpClient;
 public interface AppComponent {
     Context provideContext();
     OkHttpClient provideOkhttpClient();
+    ZhihuRepository provideZhihuRepository();
 }

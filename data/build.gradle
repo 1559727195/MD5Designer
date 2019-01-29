@@ -48,5 +48,8 @@ dependencies {
     api dataDependencies.okhttp
     api dataDependencies.okhttpLoggingInterceptor
     api dataDependencies.material
+    api dataDependencies.retrofit
+    api dataDependencies.retrofitConverterGson
+    api dataDependencies.retrofitAdapterRxjava
 
 }

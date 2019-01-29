@@ -27,6 +27,7 @@ ext {
             permission            : "4.0.0",
             MTRVA                 : "2.3.2-x",
             cardslideview         : "1.4.2",
+            retrofit              : "2.3.0",
 
     ]
 
@@ -59,6 +60,9 @@ ext {
             okhttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${dependVersion.okhttp}",
             material            : "com.google.android.material:material:${dependVersion.androidx}",
             MTRVA               : "com.crazysunj:multitypeadapter:${dependVersion.MTRVA}",
+            retrofit                : "com.squareup.retrofit2:retrofit:${dependVersion.retrofit}",
+            retrofitConverterGson   : "com.squareup.retrofit2:converter-gson:${dependVersion.retrofit}",
+            retrofitAdapterRxjava   : "com.squareup.retrofit2:adapter-rxjava2:${dependVersion.retrofit}",
     ]
 
 
