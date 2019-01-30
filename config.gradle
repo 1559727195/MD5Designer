@@ -28,6 +28,7 @@ ext {
             MTRVA                 : "2.3.2-x",
             cardslideview         : "1.4.2",
             retrofit              : "2.3.0",
+            gson                  : "2.8.2",
 
     ]
 
@@ -73,5 +74,6 @@ ext {
             javaxInject    : "javax.inject:javax.inject:${dependVersion.javaxInjectVersion}",
             arrow          : "com.fernandocejas:arrow:${dependVersion.arrowVersion}",
             MTRVA               : "com.crazysunj:multitypeadapter:${dependVersion.MTRVA}",
+            gson           : "com.google.code.gson:gson:${dependVersion.gson}",
     ]
 }

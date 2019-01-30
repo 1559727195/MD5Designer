@@ -45,5 +45,6 @@ dependencies {
     api domainDependencies.javaxInject
     api domainDependencies.rxjava
     api domainDependencies.rxandroid
+    api domainDependencies.gson
     implementation domainDependencies.arrow
 }

@@ -3,6 +3,8 @@ package com.massky.data.api;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.massky.data.logger.HttpLogger;
+import com.massky.data.service.ZhihuService;
 import com.massky.data.util.LoggerUtil;
 import com.massky.data.util.NetworkUtils;
 import com.massky.domain.constant.CacheConstant;
@@ -19,10 +21,14 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 @Singleton
 public class HttpHelper {
     private OkHttpClient mOkHttpClient;
+    private volatile ZhihuService mZhihuService;
     @Inject
     public HttpHelper(Context context) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
@@ -86,5 +92,22 @@ public class HttpHelper {
     public OkHttpClient getOkHttpClient() {
         return mOkHttpClient;
     }
+
+    public ZhihuService getZhihuService() {
+        if (mZhihuService == null) {
+            synchronized (this) {
+                if (mZhihuService == null) {
+                    mZhihuService = new Retrofit.Builder()
+                            .baseUrl(ZhihuService.HOST)
+                            .client(mOkHttpClient)
+                            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build().create(ZhihuService.class);
+                }
+            }
+        }
+        return mZhihuService;
+    }
+
 
 }
