@@ -4,6 +4,7 @@ import com.crazysunj.cardslideview.CardViewPager;
 import com.massky.domain.entity.zhihu.ZhihuNewsEntity;
 import com.massky.md5designer.R;
 import com.massky.md5designer.base.BaseFragment;
+import com.massky.md5designer.di.module.EntityModule;
 import com.massky.md5designer.presenter.NewHomePresenter;
 import com.massky.md5designer.presenter.contract.NewHomeContract;
 import com.massky.md5designer.view.banner.WrapBannerView;
@@ -17,8 +18,6 @@ public class HomeFragment extends BaseFragment<NewHomePresenter> implements NewH
     CardViewPager mHomeBanner;
     @BindView(R.id.wrap_banner)
     WrapBannerView mWrapBanner;
-
-
 
 
     @Override
@@ -38,5 +37,16 @@ public class HomeFragment extends BaseFragment<NewHomePresenter> implements NewH
     @Override
     public void showZhihu(ZhihuNewsEntity zhihuNewsEntity) {
 
+    }
+
+    @Override
+    protected void initData() {
+        mPresenter.getZhihuNewsList();
+    }
+
+    @Override
+    protected void initInject() {
+        getFragmentComponent(new EntityModule())
+                .inject(this);
     }
 }

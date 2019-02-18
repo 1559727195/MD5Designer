@@ -1,7 +1,5 @@
 package com.massky.md5designer.presenter.contract;
 
-import android.os.IInterface;
-
 import com.massky.domain.entity.zhihu.ZhihuNewsEntity;
 import com.massky.md5designer.base.IPresenter;
 import com.massky.md5designer.base.IView;

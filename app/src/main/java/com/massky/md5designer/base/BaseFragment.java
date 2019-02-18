@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
 import com.massky.data.util.SnackbarUtil;
 import com.massky.md5designer.R;
 import com.massky.md5designer.app.App;
@@ -15,6 +16,7 @@ import com.massky.md5designer.di.module.FragmentModule;
 import com.massky.md5designer.util.DeviceUtil;
 
 import javax.inject.Inject;
+
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
@@ -27,9 +29,9 @@ import androidx.fragment.app.Fragment;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public abstract class BaseFragment <T extends IPresenter> extends Fragment implements  IView{
+public abstract class BaseFragment<T extends IPresenter> extends Fragment implements IView {
     @Inject
-    protected  T mPresenter;
+    protected T mPresenter;
     private Unbinder mUnBinder;
     protected AppCompatActivity mActivity;
 
