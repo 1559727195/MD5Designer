@@ -1,6 +1,9 @@
 package com.massky.md5designer.di.module;
 
 import com.massky.domain.entity.common.CommonHeaderEntity;
+import com.massky.domain.entity.zhihu.ZhihuNewsEntity;
+import com.massky.md5designer.ui.adapter.helper.HomeAdapterHelper;
+
 import javax.inject.Named;
 import dagger.Module;
 import dagger.Provides;
@@ -15,8 +18,9 @@ public class EntityModule {
 
     @Named(NAME_ZHIHU)
     @Provides
-    CommonHeaderEntity provideZhihuHeader() {
-        return  new CommonHeaderEntity("123",0,"","");
+    CommonHeaderEntity providerZhihuHeader() {
+        return new CommonHeaderEntity(ZhihuNewsEntity.StoriesEntity.HEADER_TITLE, HomeAdapterHelper.LEVEL_ZHIHU, ZhihuNewsEntity.StoriesEntity.HEADER_TITLE, ZhihuNewsEntity.StoriesEntity.HEADER_OPTIONS);
     }
+
 
 }

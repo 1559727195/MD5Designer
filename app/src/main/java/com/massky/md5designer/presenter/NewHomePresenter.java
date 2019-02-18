@@ -21,7 +21,7 @@ public class NewHomePresenter extends BasePresenter<NewHomeContract.View> implem
         mZhihuUseCase.execute(new BaseSubscriber<ZhihuNewsEntity>() {
             @Override
             public void onNext(ZhihuNewsEntity zhihuNewsEntity) {
-
+                 mView.showZhihu(zhihuNewsEntity);
             }
         });
     }

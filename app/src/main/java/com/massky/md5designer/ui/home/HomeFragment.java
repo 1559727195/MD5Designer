@@ -7,7 +7,11 @@ import com.massky.md5designer.base.BaseFragment;
 import com.massky.md5designer.di.module.EntityModule;
 import com.massky.md5designer.presenter.NewHomePresenter;
 import com.massky.md5designer.presenter.contract.NewHomeContract;
+import com.massky.md5designer.ui.adapter.HomeAdapter;
 import com.massky.md5designer.view.banner.WrapBannerView;
+
+import javax.inject.Inject;
+
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
 
@@ -19,6 +23,9 @@ public class HomeFragment extends BaseFragment<NewHomePresenter> implements NewH
     @BindView(R.id.wrap_banner)
     WrapBannerView mWrapBanner;
 
+
+    @Inject
+    HomeAdapter mAdapter;
 
     @Override
     protected int getContentResId() {
