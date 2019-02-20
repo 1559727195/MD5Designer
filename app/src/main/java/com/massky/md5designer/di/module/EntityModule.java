@@ -30,5 +30,4 @@ public class EntityModule {
         return new ExpandCollapseFooterEntity(HomeAdapterHelper.LEVEL_ZHIHU);
     }
 
-
 }

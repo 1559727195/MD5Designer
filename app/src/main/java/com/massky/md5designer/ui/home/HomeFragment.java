@@ -14,7 +14,6 @@ import com.massky.md5designer.view.banner.BannerCardHandler;
 import com.massky.md5designer.view.banner.WrapBannerView;
 import java.util.List;
 import javax.inject.Inject;
-
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;

@@ -3,21 +3,20 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.crazysunj.multitypeadapter.helper.RecyclerViewAdapterHelper;
 import com.massky.domain.entity.base.MultiTypeIdEntity;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public abstract class BaseHelperAdapter <T extends MultiTypeIdEntity,VH extends BaseViewHolder,
-        H extends RecyclerViewAdapterHelper<T>> extends RecyclerView.Adapter<VH> {
+public abstract class  BaseHelperAdapter<T extends MultiTypeIdEntity,VH extends BaseViewHolder,
+        H extends RecyclerViewAdapterHelper<T>> extends RecyclerView.Adapter<VH>{
+//        BaseHelperAdapter <T extends MultiTypeIdEntity,VH extends BaseViewHolder,
+//        H extends RecyclerViewAdapterHelper<T>> extends RecyclerView.Adapter<VH>
 
     protected Context mContext;
     protected LayoutInflater mLayoutInflater;

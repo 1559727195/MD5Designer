@@ -54,6 +54,11 @@ public class HomeAdapter extends BaseHelperAdapter<MultiTypeIdEntity,BaseViewHol
             case ZhihuNewsEntity.StoriesEntity.TYPE_ZHIHU_NEWS:
                 renderZhihuNews(holder, (ZhihuNewsEntity.StoriesEntity) item);
                 break;
+            case HomeAdapterHelper.LEVEL_ZHIHU - RecyclerViewAdapterHelper.FOOTER_TYPE_DIFFER:
+            case HomeAdapterHelper.LEVEL_GANK_IO - RecyclerViewAdapterHelper.FOOTER_TYPE_DIFFER:
+                renderExpandCollapseFooter(holder, (ExpandCollapseFooterEntity) item);
+                break;
+
             case HomeAdapterHelper.LEVEL_GANK_IO - RecyclerViewAdapterHelper.HEADER_TYPE_DIFFER:
                 renderGankioHeader(holder, (CommonHeaderEntity) item);
                 break;
@@ -61,7 +66,6 @@ public class HomeAdapter extends BaseHelperAdapter<MultiTypeIdEntity,BaseViewHol
             case HomeAdapterHelper.LEVEL_GAOXIAO - RecyclerViewAdapterHelper.HEADER_TYPE_DIFFER:
                 renderHeader(holder, (CommonHeaderEntity) item);
                 break;
-            case HomeAdapterHelper.LEVEL_ZHIHU - RecyclerViewAdapterHelper.FOOTER_TYPE_DIFFER:
             default:
                 break;
         }
@@ -135,28 +139,6 @@ public class HomeAdapter extends BaseHelperAdapter<MultiTypeIdEntity,BaseViewHol
 
 
 
-    // *********************** 内涵段子 ***********************
-
-//    private void renderNeihan(BaseViewHolder helper, NeihanItemEntity item) {
-//        CircleImageView avatar = helper.getView(R.id.item_neihan_avatar);
-//        ImageLoader.load(mContext, item.getAvatar(), R.mipmap.ic_huaji, avatar);
-//        helper.setText(R.id.item_neihan_name, item.getName());
-//        helper.setText(R.id.item_neihan_title, item.getTitle());
-//        NiceVideoPlayer videoPlayer = helper.getView(R.id.item_neihan_video);
-//        NeihanVideoPlayerController controller = new NeihanVideoPlayerController(mContext);
-//        controller.setTitle("");
-//        controller.setLenght(item.getDuration());
-//        controller.setClarity(item.getClarityList(), 0);
-//        videoPlayer.setController(controller);
-//        ImageLoader.load(mContext, item.getThumbnail(), R.drawable.img_default, controller.imageView());
-//
-//    }
-
-
-
-
-
-
     private void renderGankioHeader(BaseViewHolder holder, CommonHeaderEntity item) {
         final int level = mHelper.getLevel(item.getItemType());
         holder.setText(R.id.header_title, item.getTitle());
@@ -192,6 +174,19 @@ public class HomeAdapter extends BaseHelperAdapter<MultiTypeIdEntity,BaseViewHol
         final AppCompatImageView icon = holder.getView(R.id.item_zhihu_news_icon);
         ImageLoader.load(mContext, getUrl(item.getImages()), icon);
         holder.setText(R.id.item_zhihu_news_title, item.getTitle());
+//        holder.itemView.setOnClickListener(v -> ZhihuNewsDetailActivity.start((Activity) v.getContext(), item.getId(), icon));
+    }
+
+    //*********************** 公共Footer ***********************
+    private void renderExpandCollapseFooter(BaseViewHolder holder, ExpandCollapseFooterEntity item) {
+        String stringId = item.getStringId();
+        holder.setText(R.id.footer_title, stringId);
+        holder.setImageResource(R.id.footer_icon, item.getIconResId());
+        holder.itemView.setOnClickListener(v -> {
+            item.switchStatus();
+            mHelper.foldType(mHelper.getLevel(item.getItemType()), item.isFlod());
+            mHelper.notifyDataChanged(item);
+        });
     }
 
 
