@@ -14,6 +14,9 @@ import com.massky.md5designer.view.banner.BannerCardHandler;
 import com.massky.md5designer.view.banner.WrapBannerView;
 import java.util.List;
 import javax.inject.Inject;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
 
@@ -24,6 +27,9 @@ public class HomeFragment extends BaseFragment<NewHomePresenter> implements NewH
     CardViewPager mHomeBanner;
     @BindView(R.id.wrap_banner)
     WrapBannerView mWrapBanner;
+    @BindView(R.id.home_list)
+    RecyclerView mHomeList;
+
 
 
     @Inject
@@ -44,7 +50,20 @@ public class HomeFragment extends BaseFragment<NewHomePresenter> implements NewH
     }
 
     @Override
+    protected void initView() {
+        mHomeList.setLayoutManager(new LinearLayoutManager(mActivity));
+        mHomeList.setAdapter(mAdapter);
+    }
+
+    @Override
     public void showZhihu(ZhihuNewsEntity zhihuNewsEntity) {
+
+        List<ZhihuNewsEntity.StoriesEntity> stories = zhihuNewsEntity.getStories();
+        if (stories != null && !stories.isEmpty()) {
+            mAdapter.notifyZhihuNewsList(stories);
+        }
+
+
         List<ZhihuNewsEntity.TopStoriesEntity> topStories = zhihuNewsEntity.getTop_stories();
         if (topStories == null || topStories.isEmpty()) {
             mHomeBanner.setVisibility(View.GONE);

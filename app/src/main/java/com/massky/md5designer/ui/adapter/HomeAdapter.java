@@ -13,6 +13,7 @@ import com.massky.md5designer.R;
 import com.massky.md5designer.base.BaseHelperAdapter;
 import com.massky.md5designer.base.BaseViewHolder;
 import com.massky.md5designer.di.module.EntityModule;
+import com.massky.md5designer.entity.ExpandCollapseFooterEntity;
 import com.massky.md5designer.module.image.ImageLoader;
 import com.massky.md5designer.ui.adapter.helper.HomeAdapterHelper;
 import java.util.List;
@@ -32,7 +33,9 @@ public class HomeAdapter extends BaseHelperAdapter<MultiTypeIdEntity,BaseViewHol
     CommonHeaderEntity mZhihuHeaderEntity;
 
 
-
+    @Named(EntityModule.NAME_ZHIHU)
+    @Inject
+    ExpandCollapseFooterEntity mZhihuFooterEntity;
 
 
     private String mRemoveVideoItemId;
@@ -99,6 +102,14 @@ public class HomeAdapter extends BaseHelperAdapter<MultiTypeIdEntity,BaseViewHol
         final MultiTypeIdEntity item = mHelper.getItem(position);
 
     }
+
+    public void notifyZhihuNewsList(List<ZhihuNewsEntity.StoriesEntity> data) {
+        final int level = HomeAdapterHelper.LEVEL_ZHIHU;
+        final String title = String.format(Locale.getDefault(), "展开（剩余%d个）", data.size() - HomeAdapterHelper.MIN_ZHIHU);
+        mZhihuFooterEntity.initStatus(title);
+        mHelper.notifyModuleDataAndHeaderAndFooterChanged(data, mZhihuHeaderEntity, mZhihuFooterEntity, level);
+    }
+
 
     @Override
     public void onViewAttachedToWindow(@NonNull BaseViewHolder holder) {
