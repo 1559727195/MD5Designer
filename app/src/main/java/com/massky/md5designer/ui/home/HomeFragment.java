@@ -6,7 +6,6 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
-
 import com.crazysunj.cardslideview.CardViewPager;
 import com.google.android.material.appbar.AppBarLayout;
 import com.massky.domain.entity.zhihu.ZhihuNewsEntity;
@@ -44,7 +43,6 @@ public class HomeFragment extends BaseFragment<NewHomePresenter> implements NewH
     Toolbar mToolbar;
 
 
-
     @Inject
     HomeAdapter mAdapter;
     private ArgbEvaluator mArgbEvaluator = new ArgbEvaluator();
@@ -61,6 +59,18 @@ public class HomeFragment extends BaseFragment<NewHomePresenter> implements NewH
         mAppbar.addOnOffsetChangedListener(this::handleAppbarOffsetChangedListener);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        mPresenter.startBanner();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mPresenter.endBanner();
+    }
+
     private void onRefresh() {
         initData();
     }
@@ -71,7 +81,7 @@ public class HomeFragment extends BaseFragment<NewHomePresenter> implements NewH
         mRefresh.setEnabled(verticalOffset == 0);
         final int color = getColor(R.color.colorPrimary);
 //        mTitle.setTextColor((int) mArgbEvaluator.evaluate(percent, color, Color.WHITE));
-        mTitle.setTextColor((Integer) mArgbEvaluator.evaluate(percent,color,Color.WHITE));
+        mTitle.setTextColor((Integer) mArgbEvaluator.evaluate(percent, color, Color.WHITE));
         if (mNavigationIcon != null) {
             mNavigationIcon.setColorFilter((int) mArgbEvaluator.evaluate(percent, color, Color.WHITE), PorterDuff.Mode.SRC_IN);
         }
@@ -106,6 +116,11 @@ public class HomeFragment extends BaseFragment<NewHomePresenter> implements NewH
             mHomeBanner.setVisibility(View.VISIBLE);
             mHomeBanner.bind(mActivity.getSupportFragmentManager(), new BannerCardHandler(), topStories);
         }
+    }
+
+    @Override
+    public void switchBanner() {
+        mHomeBanner.setCurrentItem(mHomeBanner.getCurrentItem() + 1, true);
     }
 
 

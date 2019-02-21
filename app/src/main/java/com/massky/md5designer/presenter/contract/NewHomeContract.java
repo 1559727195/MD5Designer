@@ -7,9 +7,13 @@ import com.massky.md5designer.base.IView;
 public interface NewHomeContract {
     interface  View extends IView {
         void showZhihu(ZhihuNewsEntity zhihuNewsEntity);
+        void switchBanner();
+
     }
 
     interface Presenter extends IPresenter<View> {
         void getZhihuNewsList();
+        void startBanner();
+        void endBanner();
     }
 }

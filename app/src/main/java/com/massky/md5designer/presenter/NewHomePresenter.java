@@ -5,11 +5,20 @@ import com.massky.domain.interactor.zhihu.ZhihuNewsListUseCase;
 import com.massky.md5designer.base.BasePresenter;
 import com.massky.md5designer.base.BaseSubscriber;
 import com.massky.md5designer.presenter.contract.NewHomeContract;
+
+import java.util.concurrent.TimeUnit;
+
 import javax.inject.Inject;
+
+import io.reactivex.Flowable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 
 public class NewHomePresenter extends BasePresenter<NewHomeContract.View> implements NewHomeContract.Presenter {
 
     private ZhihuNewsListUseCase mZhihuUseCase;
+    private Disposable mBannerDisposable;
+
     @Inject
     NewHomePresenter(ZhihuNewsListUseCase zhihuUseCase) {
         mZhihuUseCase = zhihuUseCase;
@@ -24,5 +33,23 @@ public class NewHomePresenter extends BasePresenter<NewHomeContract.View> implem
                  mView.showZhihu(zhihuNewsEntity);
             }
         });
+    }
+
+    @Override
+    public void startBanner() {
+        if (mBannerDisposable == null) {
+            mBannerDisposable = Flowable.interval(3, TimeUnit.SECONDS, AndroidSchedulers.mainThread())
+                    .subscribeWith(new BaseSubscriber<Long>() {
+                        @Override
+                        public void onNext(Long aLong) {
+                            mView.switchBanner();
+                        }
+                    });
+        }
+    }
+
+    @Override
+    public void endBanner() {
+
     }
 }
