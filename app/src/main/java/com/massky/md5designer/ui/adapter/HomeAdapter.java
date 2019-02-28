@@ -111,7 +111,8 @@ public class HomeAdapter extends BaseHelperAdapter<MultiTypeIdEntity,BaseViewHol
         final int level = HomeAdapterHelper.LEVEL_ZHIHU;
         final String title = String.format(Locale.getDefault(), "展开（剩余%d个）", data.size() - HomeAdapterHelper.MIN_ZHIHU);
         mZhihuFooterEntity.initStatus(title);
-        mHelper.notifyModuleDataAndHeaderAndFooterChanged(data, mZhihuHeaderEntity, mZhihuFooterEntity, level);
+//        mHelper.notifyModuleDataAndHeaderAndFooterChanged(data, mZhihuHeaderEntity, mZhihuFooterEntity, level);
+        mHelper.notifyModuleDataAndHeaderAndFooterChanged(data,mZhihuHeaderEntity,mZhihuFooterEntity,level);
     }
 
 
