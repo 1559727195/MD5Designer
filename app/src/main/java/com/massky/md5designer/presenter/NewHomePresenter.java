@@ -1,6 +1,7 @@
 package com.massky.md5designer.presenter;
 
 import com.massky.domain.entity.zhihu.ZhihuNewsEntity;
+import com.massky.domain.interactor.gankio.GankioUseCase;
 import com.massky.domain.interactor.zhihu.ZhihuNewsListUseCase;
 import com.massky.md5designer.base.BasePresenter;
 import com.massky.md5designer.base.BaseSubscriber;
@@ -18,10 +19,12 @@ public class NewHomePresenter extends BasePresenter<NewHomeContract.View> implem
 
     private ZhihuNewsListUseCase mZhihuUseCase;
     private Disposable mBannerDisposable;
+    private GankioUseCase mGankioUseCase;
 
     @Inject
-    NewHomePresenter(ZhihuNewsListUseCase zhihuUseCase,gankio) {
+    NewHomePresenter(ZhihuNewsListUseCase zhihuUseCase, GankioUseCase gankioUseCase) {
         mZhihuUseCase = zhihuUseCase;
+        mGankioUseCase = gankioUseCase;
     }
 
 
