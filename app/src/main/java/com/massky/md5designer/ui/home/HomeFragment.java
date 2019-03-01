@@ -123,6 +123,11 @@ public class HomeFragment extends BaseFragment<NewHomePresenter> implements NewH
         mHomeBanner.setCurrentItem(mHomeBanner.getCurrentItem() + 1, true);
     }
 
+    @Override
+    public void showGankio(List<GankioEntity.ResultsEntity> gankioList) {
+
+    }
+
 
     private void stopRefresh() {
         if (mRefresh.isRefreshing()) {

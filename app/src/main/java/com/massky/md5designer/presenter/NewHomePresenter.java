@@ -1,5 +1,6 @@
 package com.massky.md5designer.presenter;
 
+import com.massky.domain.entity.gankio.GankioEntity;
 import com.massky.domain.entity.zhihu.ZhihuNewsEntity;
 import com.massky.domain.interactor.gankio.GankioUseCase;
 import com.massky.domain.interactor.zhihu.ZhihuNewsListUseCase;
@@ -7,6 +8,7 @@ import com.massky.md5designer.base.BasePresenter;
 import com.massky.md5designer.base.BaseSubscriber;
 import com.massky.md5designer.presenter.contract.NewHomeContract;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
@@ -40,7 +42,19 @@ public class NewHomePresenter extends BasePresenter<NewHomeContract.View> implem
 
     @Override
     public void getGankioList(String type) {
+        mGankioUseCase.execute(GankioUseCase.Params.get(type, 10), new
+                BaseSubscriber<List<GankioEntity.ResultsEntity>>() {
+                    @Override
+                    public void onNext(List<GankioEntity.ResultsEntity> resultsEntities) {
+                        mView.showGankio(resultsEntities);
+                    }
 
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        mView.showError(e.getMessage());
+                    }
+                });
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.massky.data.logger.HttpLogger;
+import com.massky.data.service.GankioService;
 import com.massky.data.service.ZhihuService;
 import com.massky.data.util.LoggerUtil;
 import com.massky.data.util.NetworkUtils;
@@ -29,6 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HttpHelper {
     private OkHttpClient mOkHttpClient;
     private volatile ZhihuService mZhihuService;
+    private volatile GankioService mGankioService;
     @Inject
     public HttpHelper(Context context) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
@@ -108,6 +110,23 @@ public class HttpHelper {
         }
         return mZhihuService;
     }
+
+    public GankioService getGankioService() {
+        if (mGankioService == null) {
+            synchronized (this) {
+                if (mGankioService == null) {
+                    mGankioService = new Retrofit.Builder()
+                            .baseUrl(GankioService.HOST)
+                            .client(mOkHttpClient)
+                            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build().create(GankioService.class);
+                }
+            }
+        }
+        return mGankioService;
+    }
+
 
 
 }
