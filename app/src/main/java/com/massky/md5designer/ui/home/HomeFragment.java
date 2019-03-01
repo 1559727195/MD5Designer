@@ -125,7 +125,8 @@ public class HomeFragment extends BaseFragment<NewHomePresenter> implements NewH
 
     @Override
     public void showGankio(List<GankioEntity.ResultsEntity> gankioList) {
-
+        stopRefresh();
+        mAdapter.notifyGankioList(gankioList);
     }
 
 

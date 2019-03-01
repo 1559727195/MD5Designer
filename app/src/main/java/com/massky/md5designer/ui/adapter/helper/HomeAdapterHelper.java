@@ -3,6 +3,7 @@ package com.massky.md5designer.ui.adapter.helper;
 import android.graphics.Color;
 import com.crazysunj.multitypeadapter.helper.AsynAdapterHelper;
 import com.massky.domain.entity.base.MultiTypeIdEntity;
+import com.massky.domain.entity.gankio.GankioEntity;
 import com.massky.domain.entity.zhihu.ZhihuNewsEntity;
 import com.massky.md5designer.R;
 import java.util.List;
@@ -34,6 +35,15 @@ public class HomeAdapterHelper extends AsynAdapterHelper
                 .headerResId(R.layout.header_common)
                 .footerResId(R.layout.footer_common)
                 .minSize(MIN_ZHIHU)
+                .isFolded(true)
+                .register();
+
+        registerModule(LEVEL_GANK_IO)
+                .type(GankioEntity.ResultsEntity.TYPE_GANK_IO)
+                .layoutResId(R.layout.item_gank_io)
+                .headerResId(R.layout.header_common)
+                .footerResId(R.layout.footer_common)
+                .minSize(MIN_GANK_IO)
                 .isFolded(true)
                 .register();
     }

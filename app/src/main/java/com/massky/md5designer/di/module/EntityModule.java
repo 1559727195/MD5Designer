@@ -30,4 +30,9 @@ public class EntityModule {
         return new ExpandCollapseFooterEntity(HomeAdapterHelper.LEVEL_ZHIHU);
     }
 
+    @Named(NAME_GANK_IO)
+    @Provides
+    ExpandCollapseFooterEntity providerGankioFooter() {
+        return new ExpandCollapseFooterEntity(HomeAdapterHelper.LEVEL_GANK_IO);
+    }
 }

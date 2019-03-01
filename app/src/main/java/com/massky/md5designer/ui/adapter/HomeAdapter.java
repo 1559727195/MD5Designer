@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.crazysunj.multitypeadapter.helper.RecyclerViewAdapterHelper;
 import com.massky.domain.entity.base.MultiTypeIdEntity;
 import com.massky.domain.entity.common.CommonHeaderEntity;
+import com.massky.domain.entity.gankio.GankioEntity;
 import com.massky.domain.entity.zhihu.ZhihuNewsEntity;
 import com.massky.md5designer.R;
 import com.massky.md5designer.base.BaseHelperAdapter;
@@ -16,6 +17,9 @@ import com.massky.md5designer.di.module.EntityModule;
 import com.massky.md5designer.entity.ExpandCollapseFooterEntity;
 import com.massky.md5designer.module.image.ImageLoader;
 import com.massky.md5designer.ui.adapter.helper.HomeAdapterHelper;
+import com.massky.md5designer.util.DateUtil;
+import com.massky.md5designer.util.FileUtil;
+
 import java.util.List;
 import java.util.Locale;
 import javax.inject.Inject;
@@ -37,6 +41,10 @@ public class HomeAdapter extends BaseHelperAdapter<MultiTypeIdEntity,BaseViewHol
     @Inject
     ExpandCollapseFooterEntity mZhihuFooterEntity;
 
+    @Named(EntityModule.NAME_GANK_IO)
+    @Inject
+    ExpandCollapseFooterEntity mGankioFooterEntity;
+
 
     private String mRemoveVideoItemId;
 
@@ -54,6 +62,10 @@ public class HomeAdapter extends BaseHelperAdapter<MultiTypeIdEntity,BaseViewHol
             case ZhihuNewsEntity.StoriesEntity.TYPE_ZHIHU_NEWS:
                 renderZhihuNews(holder, (ZhihuNewsEntity.StoriesEntity) item);
                 break;
+            case  GankioEntity.ResultsEntity.TYPE_GANK_IO:
+                renderGankio(holder, (GankioEntity.ResultsEntity) item);
+                break;
+
             case HomeAdapterHelper.LEVEL_ZHIHU - RecyclerViewAdapterHelper.FOOTER_TYPE_DIFFER:
             case HomeAdapterHelper.LEVEL_GANK_IO - RecyclerViewAdapterHelper.FOOTER_TYPE_DIFFER:
                 renderExpandCollapseFooter(holder, (ExpandCollapseFooterEntity) item);
@@ -78,6 +90,8 @@ public class HomeAdapter extends BaseHelperAdapter<MultiTypeIdEntity,BaseViewHol
         return holder;
     }
 
+
+
     // *********************** 搞笑视频 ***********************
 
     private DownloadCallback mDownloadCallback;
@@ -86,8 +100,27 @@ public class HomeAdapter extends BaseHelperAdapter<MultiTypeIdEntity,BaseViewHol
         mDownloadCallback = callback;
     }
 
+    public void notifyGankioList(List<GankioEntity.ResultsEntity> data) {
+        final int level = HomeAdapterHelper.LEVEL_GANK_IO;
+        final String title = String.format(Locale.getDefault(), "展开（剩余%d个）",
+                data.size() - HomeAdapterHelper.MIN_GANK_IO);
+        final String options = data.get(0).getType();
+        CommonHeaderEntity headerEntity = new CommonHeaderEntity(options, level, GankioEntity.ResultsEntity.HEADER_TITLE, options);
+        mGankioFooterEntity.initStatus(title);
+        mHelper.notifyModuleDataAndHeaderAndFooterChanged(data, headerEntity, mGankioFooterEntity, level);
+    }
+
     public interface DownloadCallback {
         void onDownload(String url);
+    }
+
+    // *********************** Gankio ***********************
+
+    private void renderGankio(BaseViewHolder holder, GankioEntity.ResultsEntity item) {
+        holder.setText(R.id.item_gank_io_title, item.getDesc());
+        holder.setText(R.id.item_gank_io_author, String.format("作者：%s", FileUtil.getText(item.getWho(), "神秘大佬")));
+        holder.setText(R.id.item_gank_io_date, String.format("发布时间：%s", DateUtil.getLocalTime(item.getPublishedAt())));
+//        holder.itemView.setOnClickListener(v -> BrowserActivity.start(mContext, item.getUrl()));
     }
 
 
