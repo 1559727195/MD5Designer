@@ -36,6 +36,11 @@ public class NewHomePresenter extends BasePresenter<NewHomeContract.View> implem
     }
 
     @Override
+    public void getGankioList(String type) {
+
+    }
+
+    @Override
     public void startBanner() {
         if (mBannerDisposable == null) {
             mBannerDisposable = Flowable.interval(3, TimeUnit.SECONDS, AndroidSchedulers.mainThread())

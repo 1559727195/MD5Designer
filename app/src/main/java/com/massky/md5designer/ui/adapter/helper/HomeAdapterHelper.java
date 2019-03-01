@@ -36,8 +36,6 @@ public class HomeAdapterHelper extends AsynAdapterHelper
                 .minSize(MIN_ZHIHU)
                 .isFolded(true)
                 .register();
-
-
     }
 
     public static int getColor(int level) {

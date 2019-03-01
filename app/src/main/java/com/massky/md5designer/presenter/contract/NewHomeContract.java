@@ -13,6 +13,7 @@ public interface NewHomeContract {
 
     interface Presenter extends IPresenter<View> {
         void getZhihuNewsList();
+        void getGankioList(String type);
         void startBanner();
         void endBanner();
     }

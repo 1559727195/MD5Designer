@@ -173,7 +173,7 @@ public class HomeAdapter extends BaseHelperAdapter<MultiTypeIdEntity,BaseViewHol
 
     private void renderZhihuNews(BaseViewHolder holder, ZhihuNewsEntity.StoriesEntity item) {
         final AppCompatImageView icon = holder.getView(R.id.item_zhihu_news_icon);
-        ImageLoader.load(mContext, getUrl(item.getImages()), icon);
+        ImageLoader.load(mContext,getUrl(item.getImages()),icon);
         holder.setText(R.id.item_zhihu_news_title, item.getTitle());
 //        holder.itemView.setOnClickListener(v -> ZhihuNewsDetailActivity.start((Activity) v.getContext(), item.getId(), icon));
     }
@@ -190,16 +190,12 @@ public class HomeAdapter extends BaseHelperAdapter<MultiTypeIdEntity,BaseViewHol
         });
     }
 
-
-
     private String getUrl(List<String> images) {
         if (images == null || images.isEmpty()) {
             return null;
         }
         return images.get(0);
     }
-
-
 
     //*********************** 接口 ***********************
 

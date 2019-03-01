@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.crazysunj.cardslideview.CardViewPager;
 import com.google.android.material.appbar.AppBarLayout;
+import com.massky.domain.entity.gankio.GankioEntity;
 import com.massky.domain.entity.zhihu.ZhihuNewsEntity;
 import com.massky.md5designer.R;
 import com.massky.md5designer.base.BaseFragment;
@@ -41,7 +42,6 @@ public class HomeFragment extends BaseFragment<NewHomePresenter> implements NewH
     TextView mTitle;
     @BindView(R.id.home_toolbar)
     Toolbar mToolbar;
-
 
     @Inject
     HomeAdapter mAdapter;
@@ -133,6 +133,7 @@ public class HomeFragment extends BaseFragment<NewHomePresenter> implements NewH
     @Override
     protected void initData() {
         mPresenter.getZhihuNewsList();
+        mPresenter.getGankioList(GankioEntity.ResultsEntity.PARAMS_ANDROID);
     }
 
     @Override
